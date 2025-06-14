@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dia do Orgulho Autista | UCB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variáveis e Reset */
+        :root {
+            --primary: #4169e1;
+            --secondary: #ffd700;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --accent: #ff6b6b;
+            --text: #333;
+            --transition: all 0.3s ease;
+            --content-margin: 15%;
+            --autism-blue: #0077b6;
+            --autism-yellow: #ffd166;
+            --autism-red: #ef476f;
+            --autism-green: #06d6a0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Layout */
+        .container {
+            width: calc(100% - 2 * var(--content-margin));
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--autism-blue), var(--autism-green));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-icon {
+            background-color: var(--autism-yellow);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        /* Menu de Navegação */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        nav a.active {
+            background-color: var(--autism-yellow);
+            color: var(--dark);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--autism-yellow);
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-4.0.3') center/cover no-repeat;
+            color: white;
+            padding: 7rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--autism-yellow);
+            color: var(--dark);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid var(--autism-yellow);
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--dark);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--autism-blue);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--autism-yellow);
+        }
+        
+        /* Sobre */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1615461065929-4f8ffed6ca40?ixlib=rb-4.0.3') center/cover;
+        }
+        
+        .about-text h3 {
+            color: var(--autism-blue);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        /* Características */
+        .features-section {
+            background: linear-gradient(to bottom, var(--autism-green), #b7e4c7);
+            padding: 5rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--autism-blue);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            color: var(--autism-blue);
+            margin-bottom: 15px;
+        }
+        
+        /* Direitos */
+        .rights-section {
+            padding: 5rem 0;
+            background-color: #e9f5db;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--autism-blue);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            top: 30px;
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+            right: auto;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--autism-green);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        /* Inclusão */
+        .inclusion-section {
+            padding: 5rem 0;
+            background: linear-gradient(to right, #caf0f8, #90e0ef);
+        }
+        
+        .inclusion-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .inclusion-text ul {
+            padding-left: 20px;
+            margin-top: 20px;
+        }
+        
+        .inclusion-text li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .inclusion-text li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--autism-green);
+            font-weight: bold;
+        }
+        
+        .inclusion-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3') center/cover;
+        }
+        
+        /* Contato */
+        .contact-section {
+            background-color: var(--autism-blue);
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--autism-yellow);
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #ddd;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--autism-yellow);
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--autism-yellow);
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--autism-yellow);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--autism-yellow);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .copyright a {
+            color: var(--autism-yellow);
+            text-decoration: none;
+        }
+        
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--autism-yellow);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .container {
+                width: 85%;
+            }
+            
+            .about-grid,
+            .inclusion-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -10px;
+                right: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Infinito Autista */
+        .infinity-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .infinity-symbol {
+            position: relative;
+            width: 200px;
+            height: 100px;
+        }
+        
+        .infinity-symbol:before,
+        .infinity-symbol:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            border: 10px solid var(--autism-blue);
+            border-radius: 50px 50px 0 50px;
+            transform: rotate(-45deg);
+        }
+        
+        .infinity-symbol:after {
+            left: 55px;
+            border-radius: 50px 50px 50px 0;
+            transform: rotate(45deg);
+        }
+        
+        .infinity-symbol .circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--autism-yellow);
+            border-radius: 50%;
+            top: 40px;
+            left: 90px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header com Menu de Navegação -->
+    <header>
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <span>Orgulho Autista</span>
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#caracteristicas">Características</a></li>
+                    <li><a href="#direitos">Direitos</a></li>
+                    <li><a href="#inclusao">Inclusão</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="infinity-container">
+                <div class="infinity-symbol">
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <h1>Dia do Orgulho Autista</h1>
+            <p>Celebrando a neurodiversidade e promovendo a inclusão em nossa sociedade</p>
+            <div class="hero-btns">
+                <a href="#sobre" class="btn">Saiba Mais</a>
+                <a href="#inclusao" class="btn btn-outline">Como Apoiar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Sobre o Dia do Orgulho Autista -->
+        <section id="sobre" class="about-section">
+            <div class="container">
+                <h2 class="section-title">Sobre o Dia do Orgulho Autista</h2>
+                <div class="about-grid">
+                    <div class="about-img"></div>
+                    <div class="about-text">
+                        <h3>Celebrando a diversidade neurológica</h3>
+                        <p>O Dia do Orgulho Autista é celebrado anualmente em 18 de junho, uma data criada para promover a aceitação e o respeito às pessoas com Transtorno do Espectro Autista (TEA).</p>
+                        <p>Esta celebração surgiu como uma resposta ao modelo médico que via o autismo como uma doença a ser curada. O movimento do orgulho autista enfatiza que o autismo é uma parte natural da diversidade humana.</p>
+                        <p>A data busca combater o estigma e promover a ideia de que as pessoas autistas têm contribuições valiosas para a sociedade, com suas perspectivas únicas e habilidades distintas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Características -->
+        <section id="caracteristicas" class="features-section">
+            <div class="container">
+                <h2 class="section-title">Características do Espectro Autista</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Comunicação</h3>
+                        <p>Diferenças na comunicação verbal e não verbal, que podem incluir atraso na fala, ecolalia ou uso literal da linguagem.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Interação Social</h3>
+                        <p>Desafios na interação social, como dificuldade em manter contato visual, entender expressões faciais ou desenvolver amizades.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Comportamentos Repetitivos</h3>
+                        <p>Movimentos repetitivos (stimming), interesses intensos e focados, ou necessidade de rotinas previsíveis.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>Sensorial</h3>
+                        <p>Sensibilidade sensorial aumentada ou reduzida a sons, luzes, texturas, sabores ou cheiros.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Direitos -->
+        <section id="direitos" class="rights-section">
+            <div class="container">
+                <h2 class="section-title">Direitos das Pessoas Autistas</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Lei Berenice Piana (12.764/2012)</h3>
+                            <p>Estabelece a Política Nacional de Proteção dos Direitos da Pessoa com Transtorno do Espectro Autista, reconhecendo o autista como pessoa com deficiência para todos os efeitos legais.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Direito à Educação</h3>
+                            <p>Garantia de matrícula em escolas regulares, com direito a acompanhante especializado quando necessário, e adaptações curriculares.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Saúde e Tratamento</h3>
+                            <p>Acesso a diagnóstico precoce, tratamento multidisciplinar e medicamentos pelo SUS, quando necessário.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Inclusão no Mercado de Trabalho</h3>
+                            <p>Lei de Cotas (8.213/91) que reserva vagas para pessoas com deficiência em empresas com 100 ou mais funcionários.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Inclusão -->
+        <section id="inclusao" class="inclusion-section">
+            <div class="container">
+                <h2 class="section-title">Promovendo a Inclusão</h2>
+                <div class="inclusion-grid">
+                    <div class="inclusion-text">
+                        <h3>Como criar ambientes mais inclusivos</h3>
+                        <p>A verdadeira inclusão vai além da aceitação - envolve criar espaços onde pessoas autistas possam prosperar:</p>
+                        <ul>
+                            <li>Respeite as diferenças sensoriais e ofereça ambientes com menos estímulos</li>
+                            <li>Utilize comunicação clara e direta, evitando linguagem ambígua</li>
+                            <li>Ofereça opções flexíveis de trabalho e estudo</li>
+                            <li>Promova a escuta ativa e valorize perspectivas diferentes</li>
+                            <li>Eduque-se sobre o autismo e combata estereótipos</li>
+                        </ul>
+                        <p>Lembre-se: quando criamos espaços inclusivos para pessoas autistas, criamos ambientes melhores para todos.</p>
+                    </div>
+                    <div class="inclusion-img"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contato -->
+        <section id="contato" class="contact-section">
+            <div class="container">
+                <h2 class="section-title" style="color: white;">Entre em Contato</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Informações de Contato</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Brasília, DF - Brasil</p>
+                        <p><i class="fas fa-envelope"></i> contato@orgulhoautista.org</p>
+                        <p><i class="fas fa-phone"></i> (61) 99999-9999</p>
+                        <p><i class="fas fa-clock"></i> Seg-Sex: 9:00 - 18:00</p>
+                        
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" placeholder="Seu Nome" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Seu E-mail" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Sua Mensagem" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">Orgulho Autista</div>
+                    <p>Site criado para celebrar o Dia do Orgulho Autista e promover a conscientização sobre o Transtorno do Espectro Autista.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#caracteristicas">Características</a></li>
+                        <li><a href="#direitos">Direitos</a></li>
+                        <li><a href="#inclusao">Inclusão</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="#">Associações</a></li>
+                        <li><a href="#">Material Educativo</a></li>
+                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#">Legislação</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Desenvolvido por <strong>Arthur André Beraldo Santos e Pedro Henrique Fraga</strong> - Trabalho Acadêmico para a Universidade Católica de Brasília (UCB)</p>
+                <p>&copy; 2025 Dia do Orgulho Autista. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para efeito de scroll suave
+        document.querySelectorAll('nav a, .hero-btns a, .footer-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    
+                    // Atualiza a classe ativa
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Scroll suave
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if(target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Script para destacar item do menu ativo
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if(pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Atualiza o ano no footer
+        document.querySelector('.copyright p:last-child').innerHTML = `&copy; ${new Date().getFullYear()} Dia do Orgulho Autista. Todos os direitos reservados.`;
+    </script>
+</body>
+</html>
